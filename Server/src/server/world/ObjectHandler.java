@@ -12,7 +12,6 @@ import server.model.objects.Objects;
 import server.model.players.Client;
 import server.model.players.Player;
 import server.util.Misc;
-
 /**
  * @author Sanity
  */

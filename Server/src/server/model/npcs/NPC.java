@@ -70,6 +70,7 @@ public class NPC {
 	
 	public void forceChat(String text) {
 		forcedText = text;
+		
 		forcedChatRequired = true;
 		updateRequired = true;
 	}

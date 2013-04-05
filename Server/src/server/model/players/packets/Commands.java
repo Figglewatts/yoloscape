@@ -9,7 +9,6 @@ import server.model.players.PlayerHandler;
 import server.util.Misc;
 import server.world.WorldMap;
 
-
 /**
  * Commands
  **/

@@ -5,7 +5,7 @@ import server.Server;
 import server.model.objects.Object;
 import server.util.Misc;
 import server.util.ScriptManager;
-
+import server.yolo.Logger;
 public class ActionHandler {
 	
 	private Client c;
@@ -16,6 +16,7 @@ public class ActionHandler {
 	
 	
 	public void firstClickObject(int objectType, int obX, int obY) {
+		Logger.logConsole("Player " + c.playerName + " firstClicked a " + objectType + "at " + "( " + obX + ", " + obY + ")");
 		c.clickObjectType = 0;
 		//c.sendMessage("Object type: " + objectType);
 		switch(objectType) {
@@ -778,6 +779,7 @@ public class ActionHandler {
 	}
 	
 	public void secondClickObject(int objectType, int obX, int obY) {
+		Logger.logConsole("Player " + c.playerName + " firstClicked a " + objectType + "at " + "( " + obX + ", " + obY + ")");
 		c.clickObjectType = 0;
 		//c.sendMessage("Object type: " + objectType);
 		switch(objectType) {
@@ -846,6 +848,7 @@ public class ActionHandler {
 	
 	
 	public void thirdClickObject(int objectType, int obX, int obY) {
+		Logger.logConsole("Player " + c.playerName + " firstClicked a " + objectType + "at " + "( " + obX + ", " + obY + ")");
 		c.clickObjectType = 0;
 		c.sendMessage("Object type: " + objectType);
 		switch(objectType) {

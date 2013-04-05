@@ -1,7 +1,7 @@
 package server.util;
 
 import java.text.NumberFormat;
-
+import server.yolo.Logger;
 public class Misc {
 
 	public static String formatPlayerName(String str) {
@@ -57,19 +57,19 @@ public class Misc {
 	
 	public static void print_debug(String str)
 	{
-		System.out.print(str);				
+		Logger.logConsole(str);			
 	}
 	public static void println_debug(String str)
 	{
-		System.out.println(str);
+		Logger.logConsole(str);
 	}
 	public static void print(String str)
 	{
-		System.out.print(str);
+		Logger.logConsole(str);	
 	}
 	public static void println(String str)
 	{
-		System.out.println(str);
+		Logger.logConsole(str);	
 	}
 
 	public static String Hex(byte data[])

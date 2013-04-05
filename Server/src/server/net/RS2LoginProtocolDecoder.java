@@ -15,6 +15,7 @@ import server.model.players.Client;
 import server.model.players.PlayerHandler;
 import server.model.players.PlayerSave;
 import server.util.ISAACRandomGen;
+import server.yolo.Logger;
 
 /**
  * Login protocol decoder.
@@ -143,6 +144,15 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		int loginDelay = 1;
 		int returnCode = 2;
 		
+		//Loggin new user
+		if(Config.SERVER_DEBUG)
+		{
+		System.out.println("New Player:");
+		System.out.println("Name: " + name);
+		System.out.println("UID: " + uid);
+		System.out.println("Version: " + version);
+		}
+		
 		name = name.trim();
 		name = name.toLowerCase();
 		pass = pass.toLowerCase();
@@ -163,24 +173,45 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		cl.setOutStreamDecryption(outC);
 		cl.outStream.packetEncryption = outC;
 				
-		cl.saveCharacter = false;
+		cl.saveCharacter = true; //Was false
 		
 		char first = name.charAt(0);
 		cl.properName = Character.toUpperCase(first)+ name.substring(1, name.length());
 		
+		if(PlayerSave.PlayerExists(name) == false)
+		{
+			returnCode = 3;
+			if(Config.SERVER_DEBUG)
+			{
+				Logger.logConsole("Player does not exist.");
+			}
+		}
+		
 		if(Connection.isNamedBanned(cl.playerName)) {
 			returnCode = 4;
+			if(Config.SERVER_DEBUG)
+			{
+				Logger.logConsole("Player Banned");
+			}
 		}
 		
 		if(PlayerHandler.isPlayerOn(name)) {
+			if(Config.SERVER_DEBUG)
+			{
+				Logger.logConsole("Player already connected.");
+			}
 			returnCode = 5;
 		}
 		
 		//if(Config.CLIENT_VERSION != version) {
-			//returnCode = 6;
+		//	returnCode = 6;
 		//}
 		
 		if(PlayerHandler.playerCount >= Config.MAX_PLAYERS) {
+			if(Config.SERVER_DEBUG)
+			{
+				Logger.logConsole("Maximum players reached.");
+			}
 			returnCode = 7;
 		}
 		
@@ -204,6 +235,14 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		
 		if(returnCode == 2) {
 			int load = PlayerSave.loadGame(cl, cl.playerName, cl.playerPass);
+			
+			//Checks to see if the player is admin
+			if(PlayerSave.PlayerIsAdmin(cl.playerName))
+			{
+				cl.isAdmin = true; //Sets the player to be admin.
+				Logger.logConsole(cl.playerName + " is admin.");
+			}
+			
 			if (load == 0)
 				cl.addStarter = true;
 			if(load == 3) {

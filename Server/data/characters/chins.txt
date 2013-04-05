@@ -4,8 +4,13 @@ character-password = chins
 
 [CHARACTER]
 character-height = 0
+<<<<<<< HEAD
+character-posx = 3301
+character-posy = 3207
+=======
 character-posx = 3089
 character-posy = 3500
+>>>>>>> ca11f00424bfee9634c958dd82d52c98e80a3abd
 character-rights = 0
 crystal-bow-shots = 0
 skull-timer = 0
@@ -16,7 +21,11 @@ brother-info = 2	0
 brother-info = 3	0
 brother-info = 4	0
 brother-info = 5	0
+<<<<<<< HEAD
+special-amount = 10.0
+=======
 special-amount = 9.0
+>>>>>>> ca11f00424bfee9634c958dd82d52c98e80a3abd
 selected-coffin = 0
 barrows-killcount = 0
 teleblock-length = 0
@@ -35,8 +44,8 @@ void = 0	0	0	0	0
 [EQUIPMENT]
 character-equip = 0	-1	1	
 character-equip = 1	-1	1	
-character-equip = 2	-1	1	
-character-equip = 3	-1	0	
+character-equip = 2	1731	1	
+character-equip = 3	1323	1	
 character-equip = 4	-1	1	
 character-equip = 5	-1	1	
 character-equip = 6	-1	0	
@@ -46,7 +55,7 @@ character-equip = 9	-1	1
 character-equip = 10	-1	1	
 character-equip = 11	-1	0	
 character-equip = 12	-1	1	
-character-equip = 13	-1	0	
+character-equip = 13	882	3500	
 
 [LOOK]
 character-look = 0	0
@@ -64,12 +73,12 @@ character-look = 11	5
 character-look = 12	0
 
 [SKILLS]
-character-skill = 0	1	0
+character-skill = 0	37	28500
 character-skill = 1	1	0
 character-skill = 2	1	0
-character-skill = 3	10	1300
+character-skill = 3	27	10762
 character-skill = 4	1	0
-character-skill = 5	1	0
+character-skill = 5	1	300
 character-skill = 6	1	0
 character-skill = 7	1	0
 character-skill = 8	1	0
@@ -91,15 +100,33 @@ character-skill = 23	1	0
 character-skill = 24	1	0
 
 [ITEMS]
+<<<<<<< HEAD
+character-item = 0	996	900000
+character-item = 1	1732	1
+character-item = 2	555	1800
+character-item = 3	556	1800
+character-item = 4	557	1800
+character-item = 5	559	5400
+=======
 character-item = 0	996	500000
 character-item = 1	1732	1
 character-item = 2	555	1000
 character-item = 3	556	1000
 character-item = 4	557	1000
 character-item = 5	559	3000
+>>>>>>> ca11f00424bfee9634c958dd82d52c98e80a3abd
 character-item = 6	1382	1
-character-item = 7	1324	1
+character-item = 7	1382	1
 character-item = 8	842	1
+<<<<<<< HEAD
+character-item = 9	1732	1
+character-item = 10	381	900
+character-item = 11	1732	1
+character-item = 12	1382	1
+character-item = 13	1732	1
+character-item = 14	842	1
+character-item = 15	1382	1
+=======
 character-item = 9	883	2500
 character-item = 10	381	500
 character-item = 11	1732	1
@@ -107,17 +134,28 @@ character-item = 12	1382	1
 character-item = 13	1324	1
 character-item = 14	842	1
 character-item = 15	1732	1
+>>>>>>> ca11f00424bfee9634c958dd82d52c98e80a3abd
 character-item = 16	1382	1
 character-item = 17	1324	1
 character-item = 18	842	1
 character-item = 19	1732	1
 character-item = 20	1382	1
+<<<<<<< HEAD
+character-item = 21	842	1
+character-item = 22	842	1
+character-item = 23	1732	1
+character-item = 24	1382	1
+character-item = 25	883	1000
+character-item = 26	842	1
+character-item = 27	1732	1
+=======
 character-item = 21	1324	1
 character-item = 22	842	1
 character-item = 23	1732	1
 character-item = 24	1382	1
 character-item = 25	1324	1
 character-item = 26	842	1
+>>>>>>> ca11f00424bfee9634c958dd82d52c98e80a3abd
 
 [BANK]
 

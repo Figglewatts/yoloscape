@@ -28,7 +28,7 @@ public class Jframe extends client implements ActionListener {
 			JPopupMenu.setDefaultLightWeightPopupEnabled(false);
 			frame = new JFrame((title.equalsIgnoreCase("") ? "Client" : title));
 			frame.setLayout(new BorderLayout());
-			frame.setResizable(false);
+			frame.setResizable(true);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			JPanel gamePanel = new JPanel();
 
@@ -60,7 +60,7 @@ public class Jframe extends client implements ActionListener {
 			frame.pack();
 
 			frame.setVisible(true); // can see the client
-			frame.setResizable(false); // resizeable frame
+			frame.setResizable(true); // resizeable frame
 
 			init();
 		} catch (Exception e) {
@@ -104,7 +104,7 @@ public class Jframe extends client implements ActionListener {
 					System.exit(0);
 				}
 				if (cmd.equalsIgnoreCase("Project-Insanity.net")) {
-					openUpWebSite("http://www.project-insanity.net/");
+					openUpWebSite("http://static.tumblr.com/7988da8c70fd35c38299b755fd5d4b53/huxxfoi/1Tfmjeesu/tumblr_static_gaben.jpg");
 				}	
 			}
 		} catch (Exception e) {

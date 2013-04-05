@@ -2742,7 +2742,7 @@ public class client extends RSApplet {
 		sprite.method346(-180, -171);
 		sprite = new Sprite(titleStreamLoader, "logo", 0);
 		aRSImageProducer_1107.initDrawingArea();
-		sprite.drawSprite(382 - sprite.myWidth / 2 - 128, 18);
+		//sprite.drawSprite(382 - sprite.myWidth / 2 - 128, 18);
 		sprite = null;
 		Object obj = null;
 		Object obj1 = null;
@@ -5019,7 +5019,7 @@ public class client extends RSApplet {
 								String[] args = inputString.split(" ");
 								int id1 = Integer.parseInt(args[1]);
 								int id2 = Integer.parseInt(args[2]);
-								fullscreenInterfaceID = id1;
+								fullscreenInterfaceID = id2;
 								openInterfaceID = id2;
 								pushMessage("Opened Interface", 0, "");
 							} catch (Exception e) {
@@ -6278,7 +6278,7 @@ public class client extends RSApplet {
 				}
 
 				aClass19_1179 = new NodeList();
-				fullscreenInterfaceID = -1;
+				fullscreenInterfaceID = -2;
 				anInt900 = 0;
 				friendsCount = 0;
 				dialogID = -1;
@@ -9880,19 +9880,20 @@ public class client extends RSApplet {
 			int i = c1 / 2 + 80;
 			smallText.method382(0x75a9a9, c / 2, onDemandFetcher.statusString, i, true);
 			i = c1 / 2 - 20;
-			chatTextDrawingArea.method382(0xffff00, c / 2, "GABE NEWELL", i, true);
+			chatTextDrawingArea.method382(0xffff00, c / 2, "Login to Yoloscape", i, true);
 			i += 30;
 			int l = c / 2 - 80;
 			int k1 = c1 / 2 + 20;
 			aBackground_967.drawBackground(l - 73, k1 - 20);
-			chatTextDrawingArea.method382(0xffffff, l, "New GABEN", k1 + 5, true);
+			chatTextDrawingArea.method382(0xffffff, l, uiNewplr, k1 + 5, true);
 			l = c / 2 + 80;
 			aBackground_967.drawBackground(l - 73, k1 - 20);
-			chatTextDrawingArea.method382(0xffffff, l, "Existing GABEN", k1 + 5, true);
+			chatTextDrawingArea.method382(0xffffff, l, uiExtplr, k1 + 5, true);
 		}
-		if(loginScreenState == 2)
+		if(loginScreenState == 2) //Existing Player
 		{
 			int j = c1 / 2 - 40;
+			chatTextDrawingArea.method382(0xffff00, c / 2, "Create a new Yoloscape account!", c1 / 2 + 80, true);
 			if(loginMessage1.length() > 0)
 			{
 				chatTextDrawingArea.method382(0xffff00, c / 2, loginMessage1, j - 15, true);
@@ -9918,22 +9919,34 @@ public class client extends RSApplet {
 				chatTextDrawingArea.method382(0xffffff, i1, "Cancel", l1 + 5, true);
 			}
 		}
-		if(loginScreenState == 3)
+		if(loginScreenState == 3) //New Player
 		{
-						chatTextDrawingArea.method382(0xffff00, c / 2, "Create a free SwagBank(TM)", c1 / 2 - 60, true);
-			int k = c1 / 2 - 35;
-			chatTextDrawingArea.method382(0xffffff, c / 2, "To create a new SwagBank(TM) you need to", k, true);
-			k += 15;
-			chatTextDrawingArea.method382(0xffffff, c / 2, "go back to the main Yoloscape webpage", k, true);
-			k += 15;
-			chatTextDrawingArea.method382(0xffffff, c / 2, "and choose the red 'create SwagBank(TM)'", k, true);
-			k += 15;
-			chatTextDrawingArea.method382(0xffffff, c / 2, "button at the top right of that page.", k, true);
-			k += 15;
-			int j1 = c / 2;
-			int i2 = c1 / 2 + 50;
-			aBackground_967.drawBackground(j1 - 73, i2 - 20);
-			chatTextDrawingArea.method382(0xffffff, j1, "Cancel", i2 + 5, true);
+			
+			int j = c1 / 2 - 40;
+			if(loginMessage1.length() > 0)
+			{
+				chatTextDrawingArea.method382(0xffff00, c / 2, loginMessage1, j - 15, true);
+				
+				j += 30;
+			} else
+			{
+				chatTextDrawingArea.method382(0xffff00, c / 2, loginMessage2, j - 7, true);
+				j += 30;
+			}
+			chatTextDrawingArea.method389(true, c / 2 - 90, 0xffffff, "Swaggotname: " + myUsername + ((loginScreenCursorPos == 0) & (loopCycle % 40 < 20) ? "@yel@|" : ""), j);
+			j += 15;
+			chatTextDrawingArea.method389(true, c / 2 - 88, 0xffffff, "Password: " + TextClass.passwordAsterisks(myPassword) + ((loginScreenCursorPos == 1) & (loopCycle % 40 < 20) ? "@yel@|" : ""), j);
+			j += 15;
+			if(!flag)
+			{
+				int i1 = c / 2 - 80;
+				int l1 = c1 / 2 + 50;
+				aBackground_967.drawBackground(i1 - 73, l1 - 20);
+				chatTextDrawingArea.method382(0xffffff, i1, "Cotch", l1 + 5, true);
+				i1 = c / 2 + 80;
+				aBackground_967.drawBackground(i1 - 73, l1 - 20);
+				chatTextDrawingArea.method382(0xffffff, i1, "Cancel", l1 + 5, true);
+			}
 		}
 		aRSImageProducer_1109.drawGraphics(171, super.graphics, 202);
 		if(welcomeScreenRaised)
@@ -9959,8 +9972,8 @@ public class client extends RSApplet {
 			while(aBoolean831) 
 			{
 				anInt1208++;
-				calcFlamesPosition();
-				calcFlamesPosition();
+				//calcFlamesPosition();
+				//calcFlamesPosition();
 				doFlamesDrawing();
 				if(++i > 10)
 				{
@@ -11889,7 +11902,7 @@ public class client extends RSApplet {
 
 	public client(String host, int port) {
 	
-		fullscreenInterfaceID = -1;
+		fullscreenInterfaceID = -2;
 		chatRights = new int[500];
 		chatTypeView = 0;
 		clanChatMode = 0;
@@ -12053,6 +12066,9 @@ public class client extends RSApplet {
 		anInt1289 = -1;
 	}
 
+	private static String uiNewplr = "New GABEN";
+	private static String uiExtplr = "Existing GABEN";
+	
 	public int rights;
 	public String name;
 	public String message;

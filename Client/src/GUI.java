@@ -1,6 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.io.*;
+import java.awt.event.*;
+import java.awt.*;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -19,21 +21,28 @@ import javax.swing.UnsupportedLookAndFeelException;
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
 	
+	// Client title
+	String ClientTitle = "YoloScape Client";
+	
+	//Default Host and Port
+	String DefaultHost = "92.237.54.134";
+	String DefaultPort = "1337";
+	
 	private JFrame frame;
 	private JTextField portField;
 	private JTextField hostField;
-	private JTextField titleField;
 	
 	public static void main(String[] args) {
 		JFrame gui = new GUI();
 		gui.setVisible(true);
+		gui.setLocationRelativeTo(null);
 	}
 	
 	@SuppressWarnings({ "static-access" })
 	public GUI() {
 		setSize(367, 286);
 		setResizable(false);
-		setTitle("RuneLocus Starter Pack Panel");
+		setTitle("Server Info n Shit!");
 		frame = this;
 		 try {
 	        UIManager.setLookAndFeel(
@@ -49,34 +58,9 @@ public class GUI extends JFrame {
 	    }
 
 		getContentPane().setLayout(null);
-
-		JButton saveButton = new JButton("Save & Compile");
-		saveButton.setBounds(70, 143, 233, 42);
-		getContentPane().add(saveButton);
-		saveButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-					new Thread(new Runnable() {
-						@Override
-						public void run() {
-							try {
-								String command = 
-										"cmd /c start compile.bat";
-								Process process = Runtime.getRuntime().exec(command);
-								process.waitFor();
-								JOptionPane.showMessageDialog(frame, "Client is compiling!");
-							} catch (IOException e) {
-								e.printStackTrace();
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-						}
-					}).start();
-			}
-		});
 		
-		JButton runButton = new JButton("Run Client");
-		runButton.setBounds(70, 198, 233, 42);
+		JButton runButton = new JButton("Enter YoloScape!");
+		runButton.setBounds(70, 143, 233, 42);
 		getContentPane().add(runButton);
 		runButton.addActionListener(new ActionListener() {
 			@Override
@@ -91,40 +75,35 @@ public class GUI extends JFrame {
 						if(!portField.getText().isEmpty() && portField.getText() != null)
 							port = Integer.valueOf(portField.getText());
 						new client(host, port).execute(new String[]{"10", "0", "highmem", "members", "32"});
-						new Jframe(host, port, titleField.getText());
+						new Jframe(host, port, ClientTitle);
 					}
-					
 				}).start();
 			}
-			
 		});
 		
-		JLabel lblSetPort = new JLabel("Set Port:");
-		lblSetPort.setBounds(70, 111, 70, 16);
-		getContentPane().add(lblSetPort);
-		
-		portField = new JTextField();
-		portField.setBounds(152, 108, 151, 22);
-		getContentPane().add(portField);
-		portField.setColumns(10);
-		
+		// Server Host
 		JLabel lblSetHost = new JLabel("Set Host:");
-		lblSetHost.setBounds(70, 76, 70, 16);
+		lblSetHost.setBounds(70, 41, 70, 16);
 		getContentPane().add(lblSetHost);
-		
+
 		hostField = new JTextField();
 		hostField.setColumns(10);
-		hostField.setBounds(152, 73, 151, 22);
+		hostField.setBounds(152, 38, 151, 22);
+		hostField.setText(DefaultHost);
 		getContentPane().add(hostField);
 		
-		titleField = new JTextField();
-		titleField.setColumns(10);
-		titleField.setBounds(152, 38, 151, 22);
-		getContentPane().add(titleField);
 		
-		JLabel lblSetTitle = new JLabel("Set Title:");
-		lblSetTitle.setBounds(70, 41, 70, 16);
-		getContentPane().add(lblSetTitle);
+		
+		// Server Port
+		JLabel lblSetPort = new JLabel("Set Port:");
+		lblSetPort.setBounds(70, 76, 70, 16);
+		getContentPane().add(lblSetPort);
+
+		portField = new JTextField();
+		portField.setBounds(152, 73, 151, 22);
+		portField.setColumns(10);
+		portField.setText(DefaultPort);
+		getContentPane().add(portField);
 		
 	}
 }

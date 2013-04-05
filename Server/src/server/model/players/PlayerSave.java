@@ -12,8 +12,39 @@ import server.util.Misc;
 
 public class PlayerSave
 {
+	///PlayerExists:
+	///-------------
+	///Just looks through each of the files in our characters folder and returns if the character is found.
+	public static boolean PlayerExists(String playerName)
+	{
+		File f = new File("./data/characters/"+playerName+".txt");
 
+		return f.exists();
+	}
 	
+	///PlayerIsAdmin:
+	///-------------
+	///Checks through admin.txt for a name and if it finds one it returns true.
+	public static boolean PlayerIsAdmin(String name)
+	{
+	
+		try {
+		FileReader fileReader = new FileReader("./Data/admins.txt"); //Load the file.
+		BufferedReader bufferedReader = new BufferedReader(fileReader); //Reads it into the buffer.
+		String line = null; //The name to check against.
+		while ((line = bufferedReader.readLine()) != null) //While there are lines to read. 
+		{
+			if(line == name) //If the name in the file is equal to our character name.
+				bufferedReader.close();
+				return true; //Return true.
+			
+		}
+		bufferedReader.close(); //Close the reader.
+		} catch(IOException fileex1) {
+		return false;
+		}
+		return false;
+	}
 	
 	/**
 	*Loading

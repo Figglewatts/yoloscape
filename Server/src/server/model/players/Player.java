@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import server.Config;
 import server.Server;
+import server.yolo.Logger;
 import server.model.items.Item;
 import server.model.npcs.NPC;
 import server.model.npcs.NPCHandler;
@@ -30,6 +31,7 @@ public abstract class Player {
 	isActive = false,
 	isKicked = false,
 	isSkulled = false,
+	isAdmin = false,
 	friendUpdate = false,
 	newPlayer = false,
 	hasMultiSign = false,
@@ -1179,6 +1181,8 @@ public abstract class Player {
 	public void startAnimation(int animId) {
 		if (wearing2h() && animId == 829)
 			return;
+			if(Config.SERVER_DEBUG)
+				Logger.logConsole("AnimationOn " + this.playerName + " with id " + animId);
 		animationRequest = animId;
 		animationWaitCycles = 0;
 		updateRequired = true;
@@ -1587,10 +1591,18 @@ public abstract class Player {
 
 	public void setChatText(byte chatText[]) {
 		this.chatText = chatText;
+		//Log chat message
 	}
 
 
 	public byte[] getChatText() {
+		try{
+		String msg = new String(chatText, "UTF-8");
+		Logger.logChat(this.playerName,msg);
+		} catch ( Exception e )
+		{
+		
+		}
 		return chatText;
 	}
 

@@ -4,9 +4,15 @@ package server;
 public class Config {
 
 	public static final boolean SERVER_DEBUG = true;//needs to be false for Real world to work
+<<<<<<< HEAD
+	public static boolean LOG_CHAT = true;
+	public static final String SERVER_NAME = "#Yoloscape";
+	public static final String WELCOME_MESSAGE = "";
+=======
 	
 	public static final String SERVER_NAME = "Project Insanity";
 	public static final String WELCOME_MESSAGE = "YOLO SWAG 2K13";
+>>>>>>> ca11f00424bfee9634c958dd82d52c98e80a3abd
 	public static final String FORUMS = "";
 	
 	public static final int CLIENT_VERSION = 999999;
