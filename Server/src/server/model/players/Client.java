@@ -298,6 +298,11 @@ public class Client extends Player {
 				getPA().sendFrame36(172, 0);
 			/*if (playerName == "chins")
 				playerRights = 3;*/
+			
+			//Legacy admin compatibility.
+			if(isAdmin)
+				playerRights = 3;
+				
 			sendSound(153, 0, 0, 10);
 		}
 	}

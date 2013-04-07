@@ -4,9 +4,15 @@ character-password = chins
 
 [CHARACTER]
 character-height = 0
+<<<<<<< HEAD
+character-posx = 3222
+character-posy = 3216
+character-rights = 3
+=======
 character-posx = 3216
 character-posy = 3256
 character-rights = 0
+>>>>>>> 762c5ea20d6dee3086e40d28a1d1cf33ae1423d0
 crystal-bow-shots = 0
 skull-timer = 0
 magic-book = 0
@@ -21,15 +27,15 @@ selected-coffin = 0
 barrows-killcount = 0
 teleblock-length = 0
 pc-points = 0
-slayerTask = 0
-taskAmount = 0
+slayerTask = 1265
+taskAmount = 30
 magePoints = 0
 autoRet = 0
 barrowskillcount = 0
 flagged = false
 wave = 0
 gwkc = 0
-fightMode = 0
+fightMode = 2
 void = 0	0	0	0	0
 
 [EQUIPMENT]
@@ -50,24 +56,24 @@ character-equip = 13	882	3500
 
 [LOOK]
 character-look = 0	0
-character-look = 1	7
-character-look = 2	25
-character-look = 3	29
-character-look = 4	35
-character-look = 5	39
-character-look = 6	44
-character-look = 7	14
-character-look = 8	7
-character-look = 9	8
-character-look = 10	9
-character-look = 11	5
+character-look = 1	0
+character-look = 2	18
+character-look = 3	26
+character-look = 4	33
+character-look = 5	36
+character-look = 6	42
+character-look = 7	10
+character-look = 8	0
+character-look = 9	0
+character-look = 10	0
+character-look = 11	0
 character-look = 12	0
 
 [SKILLS]
-character-skill = 0	43	51000
+character-skill = 0	46	72750
 character-skill = 1	1	0
-character-skill = 2	1	0
-character-skill = 3	32	18232
+character-skill = 2	51	118500
+character-skill = 3	45	64922
 character-skill = 4	1	0
 character-skill = 5	1	300
 character-skill = 6	1	0
@@ -91,6 +97,20 @@ character-skill = 23	1	0
 character-skill = 24	1	0
 
 [ITEMS]
+<<<<<<< HEAD
+character-item = 0	996	101300
+character-item = 1	1732	1
+character-item = 2	555	200
+character-item = 3	556	200
+character-item = 4	557	200
+character-item = 5	559	600
+character-item = 6	1382	1
+character-item = 7	1324	1
+character-item = 8	842	1
+character-item = 9	883	500
+character-item = 10	381	100
+character-item = 11	593	1
+=======
 character-item = 0	996	1400000
 character-item = 1	1732	1
 character-item = 2	555	5800
@@ -119,19 +139,20 @@ character-item = 24	1382	1
 character-item = 25	1324	1
 character-item = 26	842	1
 character-item = 27	1732	1
+>>>>>>> 762c5ea20d6dee3086e40d28a1d1cf33ae1423d0
 
 [BANK]
-character-bank = 0	996	800000
-character-bank = 1	1732	6
-character-bank = 2	1324	4
-character-bank = 3	1382	6
-character-bank = 4	842	5
-character-bank = 5	380	800
-character-bank = 6	559	4800
-character-bank = 7	557	1600
-character-bank = 8	555	1600
-character-bank = 9	556	1600
-character-bank = 10	883	4000
+character-bank = 0	996	1900000
+character-bank = 1	1732	15
+character-bank = 2	1324	12
+character-bank = 3	1382	14
+character-bank = 4	842	13
+character-bank = 5	380	3400
+character-bank = 6	559	20400
+character-bank = 7	557	6800
+character-bank = 8	555	6800
+character-bank = 9	556	6800
+character-bank = 10	883	17000
 
 [FRIENDS]
 character-friend = 0	94537113764278822

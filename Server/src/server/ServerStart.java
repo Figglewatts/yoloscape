@@ -12,8 +12,9 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import server.model.players.Player;
 import server.model.players.Client;
-
+import server.model.players.PlayerHandler;
 /**
 * Command Line Server starter for RuneLocus
 *
@@ -61,6 +62,11 @@ public class ServerStart {
 			case "port":
 				GetPort();
 				break;
+			case "currentplayers":
+			if(Server.isRunning)
+				GetCurrentPlayers();
+			else
+				System.out.println("Server isn't running");
 			case "run":
 				RunServer(port);
 				break;
@@ -69,6 +75,24 @@ public class ServerStart {
 				break;
 			case "exit":
 				Exit();
+				break;
+			case "message":
+				if(Server.isRunning){
+					System.out.println("Message:");
+					String msg = GetInput();
+					if(msg != "")
+					{
+						SendMessageToPlayers(msg);
+					}
+					else
+					{
+						System.out.println("Invalid Message");
+					}
+				}
+				else
+				{
+					System.out.println("Server isn't running");
+				}
 				break;
 			default:
 				System.out.println("Command not recognized.");
@@ -149,5 +173,22 @@ public class ServerStart {
 	static void Exit()
 	{
 		System.exit(0);
+	}
+	//sends a message to each connected player.
+	static void SendMessageToPlayers(String msg)
+	{
+		for(Player p : Server.playerHandler.players) {
+			if(p == null)
+				continue;
+			Client c = (Client)p;
+			c.sendMessage("[Server] " + msg);
+		}
+	}
+	
+	static void GetCurrentPlayers(){
+		for(Player p : Server.playerHandler.players) {
+			System.out.println(p.playerName);
+		}
+		System.out.println("Current player count :" + Server.playerHandler.players.length + "/" + Config.MAX_PLAYERS);
 	}
 }

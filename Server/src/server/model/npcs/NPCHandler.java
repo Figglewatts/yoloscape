@@ -31,6 +31,7 @@ public class NPCHandler {
 		}
 		loadNPCList("./data/cfg/npc.cfg");
 		loadAutoSpawn("./data/cfg/spawn-config.cfg");
+		Logger.logConsole("Loaded " + npcs.length + " npcs.");
 	}
 	
 	public void multiAttackGfx(int i, int gfx) {
