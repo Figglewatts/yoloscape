@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import server.Server;
 import server.util.Misc;
-
+import server.yolo.Logger;
 public class PlayerSave
 {
 	///PlayerExists:
@@ -29,7 +29,7 @@ public class PlayerSave
 	{
 	
 		try {
-		FileReader fileReader = new FileReader("./Data/admins.txt"); //Load the file.
+		FileReader fileReader = new FileReader("./data/admins.txt"); //Load the file.
 		BufferedReader bufferedReader = new BufferedReader(fileReader); //Reads it into the buffer.
 		String line = null; //The name to check against.
 		while ((line = bufferedReader.readLine()) != null) //While there are lines to read. 
@@ -63,6 +63,7 @@ public class PlayerSave
 		{
 			try {
 				 characterfile = new BufferedReader(new FileReader("./data/characters/"+playerName+".txt"));
+				 Logger.logConsole("Found player file for " + playerName);
 			} catch(FileNotFoundException fileex1) {
 			
 			}

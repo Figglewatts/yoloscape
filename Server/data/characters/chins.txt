@@ -4,8 +4,8 @@ character-password = chins
 
 [CHARACTER]
 character-height = 0
-character-posx = 3249
-character-posy = 3257
+character-posx = 3260
+character-posy = 3267
 character-rights = 0
 crystal-bow-shots = 0
 skull-timer = 0
@@ -29,14 +29,14 @@ barrowskillcount = 0
 flagged = false
 wave = 0
 gwkc = 0
-fightMode = 0
+fightMode = 2
 void = 0	0	0	0	0
 
 [EQUIPMENT]
 character-equip = 0	-1	1	
 character-equip = 1	-1	1	
 character-equip = 2	1731	1	
-character-equip = 3	1323	1	
+character-equip = 3	-1	0	
 character-equip = 4	-1	1	
 character-equip = 5	-1	1	
 character-equip = 6	-1	0	
@@ -64,10 +64,10 @@ character-look = 11	5
 character-look = 12	0
 
 [SKILLS]
-character-skill = 0	43	51000
+character-skill = 0	46	69750
 character-skill = 1	1	0
-character-skill = 2	1	0
-character-skill = 3	32	18232
+character-skill = 2	33	19500
+character-skill = 3	37	30943
 character-skill = 4	1	0
 character-skill = 5	1	300
 character-skill = 6	1	0
@@ -91,20 +91,20 @@ character-skill = 23	1	0
 character-skill = 24	1	0
 
 [ITEMS]
-character-item = 0	996	3000000
+character-item = 0	996	3787200
 character-item = 1	1732	1
-character-item = 2	555	6000
-character-item = 3	556	6000
-character-item = 4	557	6000
-character-item = 5	559	18000
+character-item = 2	555	7600
+character-item = 3	556	7600
+character-item = 4	557	7600
+character-item = 5	559	22800
 character-item = 6	1382	1
 character-item = 7	1382	1
 character-item = 8	842	1
-character-item = 9	883	15000
-character-item = 10	381	3000
+character-item = 9	883	19000
+character-item = 10	381	3800
 character-item = 11	1732	1
 character-item = 12	1382	1
-character-item = 13	1324	1
+character-item = 13	1360	1
 character-item = 14	842	1
 character-item = 15	1732	1
 character-item = 16	1382	1

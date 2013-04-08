@@ -51,7 +51,6 @@ public abstract class Player {
 	maxNextHit = false,
 	ssSpec = false,
 	vengOn = false,
-	addStarter = false,
 	accountFlagged = false,
 	msbSpec = false
 	;

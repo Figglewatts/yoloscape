@@ -288,9 +288,6 @@ public class Client extends Player {
 			flushOutStream();
 			getPA().clearClanChat();
 			//getPA().resetFollow();
-			if (addStarter)
-				Misc.println("ADDING STARTER FOR "+playerName+"");
-				getPA().addStarter();
 			if (autoRet == 1)
 				getPA().sendFrame36(172, 1);
 			else

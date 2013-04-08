@@ -147,10 +147,10 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		//Loggin new user
 		if(Config.SERVER_DEBUG)
 		{
-		System.out.println("New Player:");
-		System.out.println("Name: " + name);
-		System.out.println("UID: " + uid);
-		System.out.println("Version: " + version);
+			System.out.println("New Player:");
+			System.out.println("Name: " + name);
+			System.out.println("UID: " + uid);
+			System.out.println("Version: " + version);
 		}
 		
 		name = name.trim();
@@ -232,7 +232,8 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		
 		if(returnCode == 2) {
 			int load = PlayerSave.loadGame(cl, cl.playerName, cl.playerPass);
-			
+			boolean exists = PlayerSave.PlayerExists(cl.playerName);
+			Logger.logConsole(cl.playerName + " returned " + load + " when loading");
 			//Checks to see if the player is admin
 			if(PlayerSave.PlayerIsAdmin(cl.playerName))
 			{
@@ -240,18 +241,22 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 				Logger.logConsole(cl.playerName + " is admin.");
 			}
 			
-			if (load == 0)
-				cl.addStarter = true;
+			if (exists == false){
+				Logger.logConsole(cl.playerName + " is a new player.");
+				Logger.logConsole("ADDING STARTER FOR "+cl.playerName+"");
+				cl.getPA().addStarter();
+				}
+				
 			if(load == 3) {
 				returnCode = 3;
 				cl.saveFile = false;
 			} else {
-				for(int i = 0; i < cl.playerEquipment.length; i++) {
-					if(cl.playerEquipment[i] == 0) {
-						cl.playerEquipment[i] = -1;
-						cl.playerEquipmentN[i] = 0;
-					}
-				}
+				// for(int i = 0; i < cl.playerEquipment.length; i++) {
+					// if(cl.playerEquipment[i] == 0) {
+						// cl.playerEquipment[i] = -1;
+						// cl.playerEquipmentN[i] = 0;
+					// }
+				// }
 				if(!Server.playerHandler.newPlayerClient(cl)) {
 					returnCode = 7;
 					cl.saveFile = false;
